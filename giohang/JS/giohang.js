@@ -42,7 +42,7 @@ function clampQty(qty) {
 async function loadCatalog() {
   try {
     // Fetch HTML của trang menu
-    const res = await fetch('../../menu/products.html');
+    const res = await fetch('/FANDY/menu/products.html');
     const html = await res.text();
 
     // Parse HTML thành DOM
