@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <title>Sản phẩm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!-- ================================================
+     HEADER - NAVBAR + DRAWER + CATEGORY NAV
+     ================================================ -->
+<header>
+<!-- Ẩn checkbox — đóng/mở drawer bằng CSS, không cần JS -->
+<input type="checkbox" id="nav-mobile-input" class="nav-input" />
+<a href="../index/index.html" class="navbar-brand">
+    <div class="brand-icon">
+        <img src="Logo.png" alt="FANDY Logo">
+    </div>
+    FANDY
+</a>
+
+<nav class="navbar">
+    <ul class="navbar-menu">
+        <li><a href="../index/index.html">Trang chủ</a></li>
+        <li class="active"><a href="#">Sản phẩm</a></li>
+        <li><a href="../Login&SignUp/login.html">Đăng nhập</a></li>
+        <li><a href="../Login&SignUp/register.html">Đăng ký</a></li>
+    </ul>
+
+    <div class="navbar-search">
+        <input type="text" placeholder="Tìm kiếm...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <button class="navbar-cart" onclick="location.href='../giohang/cart.html'">Giỏ hàng</button>
+    <label for="nav-mobile-input" class="nav-mobile-btn">&#9776;</label>
+</nav>
+<!-- Lớp phủ tối: bấm vào để đóng drawer -->
+<label for="nav-mobile-input" class="mobile-overlay"></label>
+
+<!-- Panel drawer -->
+<div class="mobile-drawer">
+
+    <div class="drawer-header">
+        <div class="drawer-brand">
+            <div class="brand-icon">
+                <img src="Logo.png" alt="FANDY Logo">
+            </div>
+            FANDY
+        </div>
+        <!-- Nút đóng drawer -->
+        <label for="nav-mobile-input" class="drawer-close">✕</label>
+    </div>
+
+    <div class="drawer-search">
+        <input type="text" placeholder="Tìm kiếm...">
+    </div>
+
+    <ul class="drawer-menu">
+        <li><a href="../index/index.html">Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="../Login&SignUp/login.html">Đăng nhập</a></li>
+        <li><a href="../Login&SignUp/register.html">Đăng ký</a></li>
+        <li><a href="../giohang/cart.html">Giỏ hàng</a></li>
+    </ul>
+
+</div>
+    
+</header>
+
+
+<!-- ================================================
+     MAIN - NỘI DUNG CHÍNH
+     ================================================ -->
+<main>
+    <nav class="category-nav">
+        <ul>
+            <!-- Thanh danh mục: Combo, Món chính, Thức uống, Khác -->
+            <!-- Danh mục: Combo -->
+            <li><a href="#combo">Combo</a></li>
+
+            <!-- Danh mục: Món chính (có dropdown) -->
+            <li class="has-dropdown">
+                <a href="#com">Món chính</a>
+                <ul class="dropdown">
+                    <li><a href="#com">Cơm</a></li>
+                    <li><a href="#ga">Gà</a></li>
+                    <li><a href="#burger">Burger</a></li>
+                </ul>
+            </li>
+
+            <!-- Danh mục: Thức uống -->
+            <li><a href="#thuc-uong">Thức uống</a></li>
+
+            <!-- Danh mục: Khác (có dropdown) -->
+            <li class="has-dropdown">
+                <a href="#mi-y">Khác</a>
+                <ul class="dropdown">
+                    <li><a href="#mi-y">Mỳ ý</a></li>
+                    <li><a href="#pizza">Pizza</a></li>
+                    <li><a href="#hotdog">Hotdog</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- ---------- Combo ---------- -->
+    <section class="menu-section" id="combo">
+        <h2 class="section-title">Combo</h2>
+        <div class="product-grid">
+
+            <div class="product-card" id="combo1">
+            <a href="../detail/detail.html?id=combo1" class="product-link">
+              <img src="images/combo1.jpg" alt="Combo Fandy 1" />
+              <h3>Combo Fandy 1</h3>
+              <p>2 Miếng gà + 1 Burger + 1 Pepsi</p>
+              <p class="price">129.000đ</p>
+              <p class="old-price">159.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="combo2">
+            <a href="../detail/detail.html?id=combo2" class="product-link">
+              <img src="images/combo-garan.jpg" alt="Combo Fandy 2 " />
+              <h3>Combo Fandy 2</h3>
+              <p>3 Miếng gà + 1 Khoai tây chiên + 1 Coca</p>
+              <p class="price">129.000đ</p>
+              <p class="old-price">159.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="combo3">
+            <a href="../detail/detail.html?id=combo3" class="product-link">
+              <img src="images/combo2.jpg" alt="Combo Fandy 3 " />
+              <h3>Combo Fandy 3</h3>
+              <p>2 Miếng gà + 1 Mỳ ý + 1 Coca</p>
+              <p class="price">119.000đ</p>
+              <p class="old-price">140.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="combo-capdoi">
+            <a
+              href="../detail/detail.html?id=combo-capdoi"
+              class="product-link"
+            >
+              <img
+                src="images/combo-fandy-capdoi.jpg"
+                alt="Combo Fandy Cặp Đôi"
+              />
+              <h3>Combo Fandy Cặp Đôi</h3>
+              <p>2 Miếng gà + 2 Mỳ ý + 2 Pepsi + 1 Khoai tây chiên</p>
+              <p class="price">159.000đ</p>
+              <p class="old-price">180.000đ</p>
+            </a>
+          </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- Cơm ---------- -->
+    <section id="com">
+        <h2 class="section-title">Cơm</h2>
+        <div class="product-grid">
+
+            <div class="product-card" id="com-sothai">
+            <a href="../detail/detail.html?id=com-sothai" class="product-link">
+              <img src="images/sothai.jpg" alt="Cơm Gà Viên Sốt Thái" />
+              <h3>Cơm Gà Viên Sốt Thái</h3>
+              <p>Cơm + Gà viên + Sốt thái</p>
+              <p class="price">35.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="com-phomai">
+            <a href="../detail/detail.html?id=com-phomai" class="product-link">
+              <img src="images/phomai.jpg" alt="Cơm Gà Sốt Phô Mai" />
+              <h3>Cơm Gà Sốt Phô Mai</h3>
+              <p>Cơm + Gà rán + Phô mai</p>
+              <p class="price">45.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="com-mamtoi">
+            <a href="../detail/detail.html?id=com-mamtoi" class="product-link">
+              <img src="images/mamtoi.jpg" alt="Cơm Gà Sốt Mắm Tỏi" />
+              <h3>Cơm Gà Sốt Mắm Tỏi</h3>
+              <p>Cơm + Gà rán + Sốt mắm tỏi</p>
+              <p class="price">45.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="com-mamtoi">
+            <a href="../detail/detail.html?id=com-mamtoi" class="product-link">
+              <img src="images/mamtoi.jpg" alt="Cơm Gà Sốt Mắm Tỏi" />
+              <h3>Cơm Gà Sốt Mắm Tỏi</h3>
+              <p>Cơm + Gà rán + Sốt mắm tỏi</p>
+              <p class="price">45.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="com-tieuxanh">
+            <a
+              href="../detail/detail.html?id=com-tieuxanh"
+              class="product-link"
+            >
+              <img src="images/tieuxanh.jpg" alt="Cơm Gà Sốt Tiêu Xanh" />
+              <h3>Cơm Gà Sốt Tiêu Xanh</h3>
+              <p>Cơm + Gà chiên + Sốt tiêu xanh</p>
+              <p class="price">49.000đ</p>
+            </a>
+          </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- Gà ---------- -->
+    <section id="ga">
+        <h2 class="section-title">Gà</h2>
+        <div class="product-grid">
+
+            <div class="product-card" id="ga-gion">
+            <a href="../detail/detail.html?id=ga-gion" class="product-link">
+              <img src="images/gagion.jpg" alt="Gà Giòn" />
+              <h3>Gà Giòn</h3>
+              <p>1 Miếng gà giòn</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="ga-sotcay">
+            <a href="../detail/detail.html?id=ga-sotcay" class="product-link">
+              <img src="images/gasotcay.jpg" alt="Gà Giòn Sốt Cay" />
+              <h3>Gà Giòn Sốt Cay</h3>
+              <p>1 Miếng gà giòn cay</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="ga-camchua">
+            <a href="../detail/detail.html?id=ga-camchua" class="product-link">
+              <img src="images/camchua.jpg" alt="Gà Rán Sốt Cam Chua" />
+              <h3>Gà Rán Sốt Cam Chua</h3>
+              <p>1 miếng gà giòn sốt cam chua</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="ga-matong">
+            <a href="../detail/detail.html?id=ga-matong" class="product-link">
+              <img src="images/matong.jpg" alt="Gà Rán Sốt Mật Ong" />
+              <h3>Gà Rán Sốt Mật Ong</h3>
+              <p>1 miếng gà giòn sốt mật ong</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="ga-vienphomai">
+            <a
+              href="../detail/detail.html?id=ga-vienphomai"
+              class="product-link"
+            >
+              <img src="images/gavienphomai.jpg" alt="Gà Viên Sốt Phô Mai" />
+              <h3>Gà Viên Sốt Phô Mai</h3>
+              <p>1 Phần gà viên sốt phô mai</p>
+              <p class="price">39.000đ</p>
+            </a>
+          </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- Burger ---------- -->
+    <section id="burger">
+        <h2 class="section-title">Burger</h2>
+        <div class="product-grid">
+
+            <div class="product-card" id="burger-ga">
+            <a href="../detail/detail.html?id=burgur-ga" class="product-link">
+              <img src="images/burger.jpg" alt="Burger Gà" />
+              <h3>Burger Gà</h3>
+              <p>1 Burger gà giòn</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+            <div class="product-card" id="burger-haisan">
+            <a
+              href="../detail/detail.html?id=burger-haisan"
+              class="product-link"
+            >
+              <img src="images/haisan.jpg" alt="Burger Hải Sản" />
+              <h3>Burger Hải Sản</h3>
+              <p>1 Burger hải sản</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- Thức uống ---------- -->
+    <section id="thuc-uong">
+        <h2 class="section-title">Thức uống</h2>
+        <div class="product-grid">
+
+            <div class="product-card" id="nuoc-coca">
+            <a href="../detail/detail.html?id=nuoc-coca" class="product-link">
+              <img src="images/coca.jpg" alt="Coca" />
+              <h3>Coca</h3>
+              <p>1 Coca</p>
+              <p class="price">15.000đ</p>
+            </a>
+          </div>
+
+           <div class="product-card" id="nuoc-pepsi">
+            <a href="../detail/detail.html?id=nuoc-pepsi" class="product-link">
+              <img src="images/pepsi.jpg" alt="Pepsi" />
+              <h3>Pepsi</h3>
+              <p>1 Pepsi</p>
+              <p class="price">15.000đ</p>
+            </a>
+          </div>
+
+            <div class="product-card" id="nuoc-7up">
+            <a href="../detail/detail.html?id=nuoc-7up" class="product-link">
+              <img src="images/7up.jpg" alt="7Up" />
+              <h3>7Up</h3>
+              <p>1 7Up</p>
+              <p class="price">15.000đ</p>
+            </a>
+          </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- Mỳ ý ---------- -->
+    <section id="mi-y">
+        <h2 class="section-title">Mỳ ý</h2>
+        <div class="product-grid">
+
+            <div class="product-card" id="my-y">
+            <a href="../detail/detail.html?id=my-y" class="product-link">
+              <img src="images/my.jpg" alt="Mỳ ý" />
+              <h3>Mỳ Ý</h3>
+              <p>Mỳ ý + Sốt bò bằm + Phô mai</p>
+              <p class="price">45.000đ</p> </a
+            >=
+          </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- Pizza ---------- -->
+    <section id="pizza">
+        <h2 class="section-title">Pizza</h2>
+        <div class="product-card" id="pizza-haisan">
+            <a
+              href="../detail/detail.html?id=pizza-haisan"
+              class="product-link"
+            >
+              <img src="images/pizza-haisan.jpg" alt="Pizza" />
+              <h3>Pizza Hải Sản</h3>
+              <p>Pizza đế mỏng + Hải sản + Phô mai</p>
+              <p class="price">79.000đ</p>
+            </a>
+          </div>
+    </section>
+
+
+    <!-- ---------- Hotdog ---------- -->
+    <section id="hotdog">
+        <h2 class="section-title">Hotdog</h2>
+        <div class="product-grid">
+
+             <div class="product-card" id="hotdog-xucxich">
+            <a
+              href="../detail/detail.html?id=hotdog-xucxich"
+              class="product-link"
+            >
+              <img src="images/hotdog.jpg" alt="Hotdog" />
+              <h3>Hotdog Xúc Xích</h3>
+              <p>Bánh mì + Xúc xích + Tương cà</p>
+              <p class="price">29.000đ</p>
+            </a>
+          </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<!-- ================================================
+     FOOTER
+     ================================================ -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Cột 1: Giới thiệu thương hiệu -->
+        <div class="footer-col">
+            <img src="Logo.png" alt="Logo Fandy" class="footer-logo">
+            <p>
+                FANDY là cửa hàng thức ăn nhanh với các món ăn ngon,
+                giao hàng nhanh chóng và tiện lợi cho mọi khách hàng.
+            </p>
+        </div>
+
+        <!-- Cột 2: Thông tin cửa hàng -->
+        <div class="footer-col">
+            <h3>Thông tin cửa hàng</h3>
+
+            <div class="footer-info">
+                <img src="images/icon/time.png" alt="">
+                <p>08:00 - 22:00 (Mỗi ngày)</p>
+            </div>
+
+            <div class="footer-info">
+                <img src="images/icon/location.png" alt="">
+                <p>Đường 3/2, Ninh Kiều, TP. Cần Thơ</p>
+            </div>
+
+            <div class="footer-info">
+                <img src="images/icon/email.png" alt="">
+                <p>fandy@gmail.com</p>
+            </div>
+
+            <div class="footer-info">
+                <img src="images/icon/telephone.png" alt="">
+                <p>091 6533 797</p>
+            </div>
+        </div>
+
+        <!-- Cột 3: Mạng xã hội -->
+        <div class="footer-col">
+            <h3>Kết nối với chúng tôi</h3>
+            <div class="social-icons">
+                <a href="#"><img src="images/icon/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/icon/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="images/icon/tiktok.png" alt="TikTok"></a>
+                <a href="#"><img src="images/icon/messenger.png" alt="Messenger"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Dòng copyright dưới cùng -->
+    <div class="footer-bottom">
+        <p>© 2026 FANDY | Fast Food Online</p>
+    </div>
+
+</footer>
+
+<!-- Script xử lý: drawer, scroll active, tìm kiếm -->
+<script src="menu.js"></script>
+
+</body>
+</html>

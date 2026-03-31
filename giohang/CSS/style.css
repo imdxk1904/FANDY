@@ -1,0 +1,515 @@
+/* ================================================
+   IMPORT - Google Fonts
+   ================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* ================================================
+   RESET & BASE
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #ff6b00;  /* Màu cam chủ đạo */
+    --text: #fff;        /* Màu chữ trên nền cam */
+    --dark: #1e2330;     /* Màu tối */
+}
+
+body {
+    font-family: sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    line-height: 1.6;
+    padding-top: 110px; /* Chừa chỗ cho fixed header + category nav */
+}
+
+hr { display: none; }
+
+
+/* ================================================
+   HEADER - THANH TRÊN CÙNG
+   ================================================ */
+
+/* Header cố định trên cùng, nền cam */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--primary);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 1000;
+    box-shadow: 0 2px 16px rgba(255, 107, 0, 0.3);
+}
+
+/* Logo + Tên thương hiệu */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+/* Hình vuông chứa logo */
+.brand-icon {
+    width: 36px; height: 36px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+}
+
+/* Navbar: chứa menu + search + cart + hamburger */
+.navbar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0 20px;
+}
+
+/* Menu desktop */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4px;
+    flex: 1;
+}
+
+.navbar-menu > li { position: relative; }
+
+.navbar-menu > li > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+/* Hover và active trên menu desktop */
+.navbar-menu > li > a:hover,
+.navbar-menu > li.active > a {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--text);
+}
+
+/* Mũi tên dropdown (nếu có) */
+.arrow {
+    font-size: 10px;
+    transition: transform 0.25s;
+}
+
+/* Ô tìm kiếm desktop */
+.navbar-search {
+    margin-left: auto;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.navbar-search input {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 7px 36px 7px 14px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: sans-serif;
+    outline: none;
+    width: 180px;
+    transition: background 0.2s, width 0.3s;
+}
+
+.navbar-search input::placeholder { color: rgba(255, 255, 255, 0.6); }
+/* Mở rộng ô search khi focus */
+.navbar-search input:focus { background: rgba(255, 255, 255, 0.22); width: 220px; }
+
+.navbar-search button {
+    position: absolute;
+    right: 10px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer; font-size: 14px;
+}
+
+/* Nút giỏ hàng: nền trắng, chữ cam */
+.navbar-cart {
+    margin-left: 12px;
+    background: var(--text);
+    color: var(--primary);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: sans-serif;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
+    transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.navbar-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hamburger (không dùng nữa, thay bằng .nav-mobile-btn) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 6px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hamburger span {
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+
+/* ================================================
+   CATEGORY NAV - Thanh danh mục bên dưới header
+   ================================================ */
+
+/* Thanh danh mục cố định ngay dưới header */
+body > nav {
+    position: fixed;
+    top: 64px; left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    border-bottom: 2px solid #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: visible;
+    display: block;
+}
+
+body > nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    overflow: visible;
+}
+
+body > nav li {
+    padding: 14px 22px;
+    overflow: visible;
+}
+
+body > nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+}
+
+body > nav a:hover { color: var(--primary); }
+/* Link đang active: màu cam */
+body > nav a.active { color: var(--primary); }
+
+
+/* ================================================
+   CATEGORY DROPDOWN - Menu thả xuống
+   ================================================ */
+
+body > nav li.has-dropdown { position: relative; }
+
+/* Dropdown ẩn mặc định */
+body > nav li.has-dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px 0;
+    min-width: 150px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+}
+
+/* Hover vào li thì hiện dropdown */
+body > nav li.has-dropdown:hover .dropdown { display: block; }
+
+body > nav li.has-dropdown .dropdown li { padding: 0; }
+
+body > nav li.has-dropdown .dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: #555;
+    font-weight: 400;
+}
+
+body > nav li.has-dropdown .dropdown a:hover { color: var(--primary); }
+
+
+/* ================================================
+   MOBILE DRAWER - Menu kéo ra trên điện thoại
+   ================================================ */
+
+/* Lớp phủ tối khi mở drawer */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Panel drawer kéo từ phải sang */
+.mobile-drawer {
+    position: fixed;
+    top: 0; right: 0;
+    width: 300px; height: 100vh;
+    background: var(--primary);
+    z-index: 1200;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(.4, 0, .2, 1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header trong drawer: logo + nút đóng */
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tên thương hiệu trong drawer */
+.drawer-brand {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 18px;
+    display: flex; align-items: center; gap: 8px;
+}
+
+/* Nút X đóng drawer */
+.drawer-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--text);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+}
+
+.drawer-close:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* Menu trong drawer */
+.drawer-menu {
+    list-style: none;
+    padding: 12px 0;
+    flex: 1;
+}
+
+.drawer-menu li > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 20px;
+    transition: background 0.15s;
+}
+
+.drawer-menu li > a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+}
+
+/* Ô tìm kiếm trong drawer */
+.drawer-search {
+    position: relative;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.drawer-search input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 9px 36px 9px 14px;
+    color: #fff;
+    font-size: 14px;
+    font-family: sans-serif;
+    outline: none;
+}
+
+.drawer-search input::placeholder { color: rgba(255, 255, 255, 0.6); }
+
+.drawer-search button {
+    position: absolute;
+    right: 30px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer; font-size: 14px;
+}
+
+/* Checkbox ẩn — điều khiển drawer bằng CSS thuần */
+.nav-input { display: none; }
+
+/* Nút hamburger: chỉ hiện trên mobile */
+.nav-mobile-btn {
+    display: none;
+    font-size: 22px;
+    color: var(--text);
+    cursor: pointer;
+    margin-left: auto;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Khi checkbox checked: hiện overlay + mở drawer */
+.nav-input:checked ~ .mobile-overlay {
+    display: block;
+    opacity: 1;
+}
+
+.nav-input:checked ~ .mobile-drawer {
+    transform: translateX(0);
+}
+
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
+.footer {
+    background: #ff6b00;
+    padding-top: 30px;
+    margin-top: 60px;
+}
+
+/* 3 cột trong footer */
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    text-align: center;
+}
+
+/* Tất cả chữ trong footer: màu trắng */
+.footer-col h3,
+.footer-col p,
+.footer-info p,
+.footer-bottom p {
+    color: #fff;
+}
+
+.footer-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    display: block;
+}
+
+/* Dòng copyright */
+.footer-bottom {
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+}
+
+/* Hàng thông tin: icon + text */
+.footer-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.footer-info img { width: 18px; height: 18px; }
+
+/* Icon mạng xã hội */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.social-icons img { width: 32px; height: 32px; }
+
+
+/* ================================================
+   RESPONSIVE - Tablet (768px - 1024px)
+   ================================================ */
+@media (max-width: 1024px) {
+    .navbar-menu,
+    .navbar-search,
+    .navbar-cart { display: none; }
+
+    .nav-mobile-btn { display: block; }
+}
+
+
+/* ================================================
+   RESPONSIVE - Mobile (< 768px)
+   ================================================ */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Footer: xếp thành 1 cột */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col { width: 100%; }
+    .footer-logo { width: 120px; margin: 0 auto 12px; display: block; }
+    .footer-info { justify-content: center; }
+    .social-icons { justify-content: center; }
+}

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="Logo.png" type="image/png">
+    <title>Trang Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="detail.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <!-- Ẩn checkbox — đóng/mở drawer bằng CSS, không cần JS -->
+      <input type="checkbox" id="nav-mobile-input" class="nav-input" />
+      <a href="../index/index.html" class="navbar-brand">
+        <div class="brand-icon">
+          <img src="Logo.png" alt="FANDY Logo" />
+        </div>
+        FANDY
+      </a>
+
+      <nav class="navbar">
+        <ul class="navbar-menu">
+          <li><a href="../index/index.html">Trang chủ</a></li>
+          <li class="active"><a href="../menu/products.html">Sản phẩm</a></li>
+          <li><a href="../Login&SignUp/login.html">Đăng nhập</a></li>
+          <li><a href="../Login&SignUp/register.html">Đăng ký</a></li>
+        </ul>
+
+        <div class="navbar-search">
+          <input type="text" placeholder="Tìm kiếm..." />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        <button class="navbar-cart" onclick="location.href='../giohang/cart.html'">Giỏ hàng</button>
+        <label for="nav-mobile-input" class="nav-mobile-btn">&#9776;</label>
+      </nav>
+      <!-- Lớp phủ tối: bấm vào để đóng drawer -->
+      <label for="nav-mobile-input" class="mobile-overlay"></label>
+
+      <!-- Panel drawer -->
+      <div class="mobile-drawer">
+        <div class="drawer-header">
+          <div class="drawer-brand">
+            <div class="brand-icon">
+              <img src="Logo.png" alt="FANDY Logo" />
+            </div>
+            FANDY
+          </div>
+          <!-- Nút đóng drawer -->
+          <label for="nav-mobile-input" class="drawer-close">✕</label>
+        </div>
+
+        <div class="drawer-search">
+          <input type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <ul class="drawer-menu">
+          <li><a href="../index/index.html">Trang chủ</a></li>
+          <li><a href="../menu/products.html">Sản phẩm</a></li>
+          <li><a href="../Login&SignUp/login.html">Đăng nhập</a></li>
+          <li><a href="../Login&SignUp/register.html">Đăng ký</a></li>
+          <li><a href="../giohang/cart.html">Giỏ hàng</a></li>
+        </ul>
+      </div>
+    </header>
+<!-- ================================================
+     MAIN - NỘI DUNG CHÍNH
+     ================================================ -->
+   <main class="product-detail-container">
+    
+    <section class="product-top">
+        <div class="product-detail-flex">
+            
+            <div class="product-image-block">
+                <img src="" alt="Combo Fandy 1" id="main-product-img">
+            </div>
+
+            <div class="product-info-block">
+                <h1 class="product-name"></h1>
+                <p class="product-subtext"></p>
+                
+                <div class="price-group">
+                    <span class="detail-price"></span>
+                    <span class="detail-old-price"></span>
+                </div>
+
+                <div class="product-description">
+                    <h3>Mô tả sản phẩm:</h3>
+                    <p>
+                        
+                    </p>
+                </div>
+
+                <div class="quantity-control">
+                    <label for="qty">Số lượng: </label>
+                    <input type="number" id="qty" value="1" min="1" class="qty-input">
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-add-to-cart">
+                        <i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
+                    <button type="button" class="btn-buy-now">
+                        MUA NGAY
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="product-bottom reviews-section">
+        <h2 class="section-title">Đánh giá</h2>
+        
+        <div class="reviews-list">
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="user-name">Nguyễn Văn A</span>
+
+                </div>
+                <p class="review-content">Gà rất giòn, giao hàng nhanh đúng 30 phút. Sẽ ủng hộ tiếp!</p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="user-name">Trần Thị B</span>
+                    
+                </div>
+                <p class="review-content">Món ăn nóng hổi,ngon miệng.</p>
+            </div>
+        </div>
+
+        <div class="add-review-form">
+            <h3>Để lại đánh giá của bạn</h3>
+           
+            <textarea placeholder="Chia sẻ cảm nhận của bạn về món ăn tại FANDY..."></textarea>
+            <button type="button" class="btn-submit-review">Gửi đánh giá</button>
+        </div>
+    </section>
+
+</main>
+<!--PHẦN FOOTER-->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Cột 1: Giới thiệu thương hiệu -->
+        <div class="footer-col">
+          <img src="Logo.png" alt="Logo Fandy" class="footer-logo" />
+          <p>
+            FANDY là cửa hàng thức ăn nhanh với các món ăn ngon, giao hàng nhanh
+            chóng và tiện lợi cho mọi khách hàng.
+          </p>
+        </div>
+
+        <!-- Cột 2: Thông tin cửa hàng -->
+        <div class="footer-col">
+          <h3>Thông tin cửa hàng</h3>
+
+          <div class="footer-info">
+            <img src="images/icon/time.png" alt="" />
+            <p>08:00 - 22:00 (Mỗi ngày)</p>
+          </div>
+
+          <div class="footer-info">
+            <img src="images/icon/location.png" alt="" />
+            <p>Đường 3/2, Ninh Kiều, TP. Cần Thơ</p>
+          </div>
+
+          <div class="footer-info">
+            <img src="images/icon/email.png" alt="" />
+            <p>fandy@gmail.com</p>
+          </div>
+
+          <div class="footer-info">
+            <img src="images/icon/telephone.png" alt="" />
+            <p>091 6533 797</p>
+          </div>
+        </div>
+
+        <!-- Cột 3: Mạng xã hội -->
+        <div class="footer-col">
+          <h3>Kết nối với chúng tôi</h3>
+          <div class="social-icons">
+            <a href="#"
+              ><img src="images/icon/facebook.png" alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img src="images/icon/instagram.png" alt="Instagram"
+            /></a>
+            <a href="#"><img src="images/icon/tiktok.png" alt="TikTok" /></a>
+            <a href="#"
+              ><img src="images/icon/messenger.png" alt="Messenger"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dòng copyright dưới cùng -->
+      <div class="footer-bottom">
+        <p>© 2026 FANDY | Fast Food Online</p>
+      </div>
+    </footer>
+
+    <!-- Script xử lý: drawer, scroll active, tìm kiếm -->
+    <script src="menu.js"></script>
+    <script src="detail.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,252 @@
+/* ================================================
+   IMPORT - Kéo CSS từ các file khác vào
+   ================================================ */
+@import url('cart.css');   /* Style giỏ hàng: cart-row, qty, tổng tiền */
+@import url('style.css');  /* Style chung: header, footer, navbar, product-card */
+
+
+/* ================================================
+   BIẾN CSS - Màu sắc và hiệu ứng riêng trang giỏ hàng
+   ================================================ */
+:root {
+  --bg: #f9f9f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --brand: #ff6b2d;
+  --brand-2: #ff8a5c;
+  --border: rgba(31, 41, 55, 0.12);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ================================================
+   RESET & BASE
+   ================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+
+/* ================================================
+   LAYOUT - Bố cục trang chính
+   ================================================ */
+
+/* Vùng chứa nội dung chính, căn giữa và giới hạn chiều rộng */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* Tiêu đề "Giỏ hàng" */
+.title {
+  text-align: center;
+  margin: 20px 0 24px;
+  font-family: sans-serif;
+  font-size: clamp(28px, 6vw, 42px);
+}
+
+
+/* ================================================
+   HEADER OVERRIDES - Sửa lại màu cho đúng với trang giỏ hàng
+   ================================================ */
+
+/* Nút giỏ hàng: nền trắng, chữ cam */
+.navbar-cart {
+  color: var(--primary);
+  background: #fff;
+}
+
+/* Tên thương hiệu FANDY: chữ trắng */
+.navbar-brand {
+  color: #fff;
+}
+
+/* Tên FANDY trong drawer mobile: chữ trắng */
+.drawer-brand {
+  color: #fff;
+}
+
+/* Nút hamburger mobile: chữ trắng */
+.nav-mobile-btn {
+  color: #fff;
+}
+/* Chữ gõ vào ô tìm kiếm màu trắng */
+.navbar-search input {
+    color: #fff;
+}
+
+/* Chữ placeholder màu trắng mờ */
+.navbar-search input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* ================================================
+   NÚT CHUNG
+   ================================================ */
+
+/* Nút dạng outline: dùng cho "Xóa hết", "Về trang chủ" */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+}
+.btn:hover { background: rgba(255, 107, 45, 0.1); }
+.btn-ghost { background: transparent; }
+
+/* Nút "Thêm vào giỏ": nền cam, chữ trắng */
+.btn-add-cart {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 9px 0;
+  background: #ff6b00;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-add-cart:hover {
+  background: #e05e00;
+  transform: translateY(-1px);
+}
+
+
+/* ================================================
+   GỢI Ý MÓN NGON - Section bên dưới giỏ hàng
+   ================================================ */
+
+/* Vùng chứa section gợi ý: nền xám nhạt, không border */
+.suggest {
+  background: #f9f9f9;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* Lưới 4 cột cho các card gợi ý */
+.suggest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Card sản phẩm trong gợi ý */
+.suggest-grid .product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.suggest-grid .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Ảnh sản phẩm trong card gợi ý */
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Giá mới: đậm, màu đen */
+.product-card .price {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: auto;
+}
+
+/* Giá cũ: gạch ngang, màu xám */
+.product-card .old-price {
+  text-decoration: line-through;
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 400 ;
+  margin-bottom: auto;
+}
+
+/* Badge % giảm giá: góc trên trái card, nền đỏ */
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ff3f34;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+
+/* ================================================
+   HIỆU ỨNG
+   ================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tắt animation cho người dùng cài đặt giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  .cart-row, .product-card { transition: none; }
+  .cart-row:hover, .product-card:hover { transform: none; }
+}
+
+
+/* ================================================
+   RESPONSIVE - Tablet (≤ 768px)
+   ================================================ */
+@media (max-width: 768px) {
+  .suggest-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ================================================
+   RESPONSIVE - Mobile nhỏ (≤ 480px)
+   ================================================ */
+@media (max-width: 480px) {
+  .page { padding: 16px 10px 28px; }
+  .suggest-grid { grid-template-columns: 1fr; }
+}
